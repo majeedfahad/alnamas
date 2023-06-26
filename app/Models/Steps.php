@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Steps extends Model
+class Steps extends Model implements HasMedia
 {
-    use HasFactory;
+    use HasFactory,
+        InteractsWithMedia;
 
     protected $table = 'steps';
 
@@ -18,22 +22,21 @@ class Steps extends Model
 
     protected $guarded = [];
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
     }
 
-    public function validate(): self
+    public static function create(array $data): self
     {
-        $relatedSteps = self::query()->where('user_id', $this->user_id)->get();
+        $step = static::query()->create([
+            'count' => $data['count'],
+            'user_id' => auth()->user()->id,
+        ]);
 
-        // check if the user has already uploaded a step today
-        $relatedSteps->each(function ($step) {
-            if ($this->created_at->isSameDay($step->created_at)) {
-                throw new \Exception("ما ترفع تسجيلين في نفس اليوم ياذيبان/ة");
-            }
-        });
+        $step->addMediaFromRequest('image')
+            ->toMediaCollection();
 
-        return $this;
+        return $step;
     }
 }

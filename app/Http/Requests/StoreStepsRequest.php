@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Steps;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -16,6 +17,7 @@ class StoreStepsRequest extends FormRequest
     {
         return [
             'count' => 'required|integer|min:1',
+            'image' => 'required|image',
         ];
     }
 
@@ -28,7 +30,7 @@ class StoreStepsRequest extends FormRequest
 
     private function validateUserSteps()
     {
-        $userSteps = User::query()->where('user_id', auth()->user()->id)->get();
+        $userSteps = Steps::query()->where('user_id', auth()->user()->id)->get();
 
         // check if the user has already uploaded a step today
         $userSteps->each(function ($step) {

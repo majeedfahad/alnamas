@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreStepsRequest;
+use App\Models\Steps;
 use Illuminate\Http\Request;
 
 class StepsController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         return view('steps.index');
     }
@@ -21,7 +22,7 @@ class StepsController extends Controller
     {
         $data = $request->validated();
 
-        auth()->user()->steps()->create($data);
+        Steps::create($data);
 
         return redirect()->route('steps.index');
     }
