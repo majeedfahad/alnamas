@@ -11,7 +11,7 @@ class BestImageController extends Controller
      */
     public function index()
     {
-        //
+        return view('best-images.index');
     }
 
     /**
