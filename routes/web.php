@@ -20,4 +20,6 @@ Route::middleware(['auth'])->group(function() {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
     Route::resource('steps', App\Http\Controllers\StepsController::class)->only(['index', 'create', 'store']);
+
+    Route::resource('best-image', App\Http\Controllers\BestImageController::class)->only(['index', 'create', 'store']);
 });

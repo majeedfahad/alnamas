@@ -18,7 +18,6 @@ class StepsController extends Controller
 
     public function create()
     {
-        Alert::warning('هذه الصفحة لا تعمل');
         return view('steps.create');
     }
 

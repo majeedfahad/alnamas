@@ -34,14 +34,14 @@
             </a>
         </li>
         <li class="mb-5 d-flex justify-content-between">
-            <a href="/best-pics">
+            <a href="{{route('best-image.index')}}">
                 <i class="fa-solid fa-image"></i>
                 <span> صورة اليوم </span>
             </a>
             <i class="fa-solid fa-cloud-arrow-up"></i>
         </li>
         <li class="mb-5 d-flex justify-content-between">
-            <a href="/walking-challenge">
+            <a href="{{route('steps.index')}}">
                 <i class="fa-solid fa-person-walking"></i>
                 <span> تحدي المشي </span>
             </a>
