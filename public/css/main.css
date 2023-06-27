@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 :root{
-    --main-color : #8200fb
+    --main-color : rgb(130, 0, 251)
 }
 body{
     direction: rtl;
@@ -22,6 +22,9 @@ ul{
     padding: 0;
     box-sizing: border-box;
     list-style: none;
+}
+.text-right{
+    text-align: right;
 }
 .content-page{
     background-color: #f5f5f5;
@@ -58,4 +61,111 @@ ul{
 }
 .fa-cloud-arrow-up{
     color:var(--main-color)
+}
+/* Upload */
+
+.file-upload {
+    background-color: #ffffff;
+}
+
+.file-upload-btn {
+    width: 100%;
+    margin: 0;
+    color: #ffffff;
+    background: var(--main-color);
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid var(--main-color);
+    transition: all 0.2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.file-upload-btn:hover {
+    background: #1aa059;
+    color: #ffffff;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.file-upload-btn:active {
+    border: 0;
+    transition: all 0.2s ease;
+}
+
+.file-upload-content {
+    display: none;
+    text-align: center;
+}
+
+.file-upload-input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.image-upload-wrap {
+    margin-top: 20px;
+    border: 4px dashed #1a202c;
+    position: relative;
+}
+.image-upload-wrap:hover {
+    background-color: #8200FB12;
+    border: 4px dashed #1a202c;
+}
+
+.image-dropping {
+    background-color: #1fb264;
+    border: 4px dashed #1a202c;
+}
+
+.image-title-wrap {
+    padding: 0 15px 15px;
+    color: #222;
+}
+.drag-text  {
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #1a202c;
+    padding: 60px 0;
+    text-align: center;
+}
+.drag-text i{
+    font-size: 40px;
+    margin-bottom: 25px;
+}
+.file-upload-image {
+    max-width: 300px;
+    margin: auto;
+    padding: 20px;
+}
+
+.remove-image {
+    width: 200px;
+    margin: 0;
+    color: #ffffff;
+    background: #cd4535;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #b02818;
+    transition: all 0.2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.remove-image:hover {
+    background: #c13b2a;
+    color: #ffffff;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+.remove-image:active {
+    border: 0;
+    transition: all 0.2s ease;
 }
