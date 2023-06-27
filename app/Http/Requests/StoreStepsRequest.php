@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Exceptions\BusinessException;
 use App\Models\Steps;
 use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
@@ -35,7 +36,7 @@ class StoreStepsRequest extends FormRequest
         // check if the user has already uploaded a step today
         $userSteps->each(function ($step) {
             if (now()->isSameDay($step->created_at)) {
-                throw new \Exception("ما ترفع تسجيلين في نفس اليوم ياذيبان/ة");
+                throw new BusinessException("ما ترفع تسجيلين في نفس اليوم ياذيبان/ة");
             }
         });
     }

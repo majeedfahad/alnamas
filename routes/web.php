@@ -13,8 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();
 
-Route::resource('steps', App\Http\Controllers\StepsController::class)->only(['index', 'create', 'store']);
+Route::middleware(['auth'])->group(function() {
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::resource('steps', App\Http\Controllers\StepsController::class)->only(['index', 'create', 'store']);
+});
