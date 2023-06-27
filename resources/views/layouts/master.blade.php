@@ -10,8 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic&display=swap" rel="stylesheet">
     <!-- App css -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css">
-    <link href="/css/main.css" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('/css/main.css')}}" rel="stylesheet" type="text/css"/>
     @yield('custom_style')
 </head>
 <body>
@@ -43,10 +43,10 @@
     </div>
 </div>
 <!-- App js -->
-<script src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/94124166ee.js" crossorigin="anonymous"></script>
-
-<script src="/js/main.js"></script>
+<script src="{{asset('/js/jquery.js')}}"></script>
+<script src="{{asset('/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{asset('/js/main.js')}}"></script>
 {{-- custom script --}}
 @yield('custom_script')
 </body>
