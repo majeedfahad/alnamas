@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\BestImageRequest;
+use App\Models\BestImage;
 use Illuminate\Http\Request;
 
 class BestImageController extends Controller
@@ -11,7 +13,9 @@ class BestImageController extends Controller
      */
     public function index()
     {
-        return view('best-images.index');
+        $images = BestImage::query()->today()->paginate(3);
+
+        return view('best-images.index', compact('images'));
     }
 
     /**
@@ -25,9 +29,13 @@ class BestImageController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(BestImageRequest $request)
     {
-        //
+        $request->validated();
+
+        BestImage::create();
+
+        return redirect()->route('best-images.index');
     }
 
     /**
@@ -60,5 +68,12 @@ class BestImageController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function toggleLike(BestImage $image)
+    {
+        $image->like(auth()->user());
+
+        return back();
     }
 }

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\BestImageController;
+use App\Http\Controllers\StepsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +20,10 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::middleware(['auth'])->group(function() {
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 
-    Route::resource('steps', App\Http\Controllers\StepsController::class)->only(['index', 'create', 'store']);
+    Route::resource('steps', StepsController::class)->only(['index', 'create', 'store']);
 
-    Route::resource('best-image', App\Http\Controllers\BestImageController::class)->only(['index', 'create', 'store']);
+    Route::get('best-images/{image}/toggleLike', [BestImageController::class, 'toggleLike'])->name('best-images.toggleLike');
+    Route::resource('best-images', BestImageController::class)->only(['index', 'create', 'store']);
 });

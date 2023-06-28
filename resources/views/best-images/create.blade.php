@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    <form method="post" action="{{route('best-image.store')}}" enctype="multipart/form-data">
+                    <form method="post" action="{{route('best-images.store')}}" enctype="multipart/form-data">
                         @csrf
 
 
@@ -36,6 +36,11 @@
                                 </div>
                             </div>
                         </div>
+                        @foreach($errors->messages() as $error)
+                            @foreach($error as $e)
+                                <strong>{{$e}}</strong>
+                            @endforeach
+                        @endforeach
 
                         <div class="mt-3">
                             <button type="submit" class="btn btn-outline-info">اضافة</button>

@@ -28,13 +28,13 @@
             </a>
         </li>
         <li class="mb-5">
-            <a href="/quiz">
+            <a href="{{config('services.mulatham.url')}}">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
-                <span> اسئلة وتحديات </span>
+                <span> اليحياوي الملثم </span>
             </a>
         </li>
         <li class="mb-5 d-flex justify-content-between">
-            <a href="{{route('best-image.index')}}">
+            <a href="{{route('best-images.index')}}">
                 <i class="fa-solid fa-image"></i>
                 <span> صورة اليوم </span>
             </a>

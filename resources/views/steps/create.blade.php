@@ -40,6 +40,12 @@
                             </div>
                         </div>
 
+                        @foreach($errors->messages() as $error)
+                            @foreach($error as $e)
+                                <strong>{{$e}}</strong>
+                            @endforeach
+                        @endforeach
+
                         <div class="mt-3">
                             <button type="submit" class="btn btn-outline-info">اضافة</button>
                         </div>

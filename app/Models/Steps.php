@@ -27,6 +27,12 @@ class Steps extends Model implements HasMedia
         return $this->belongsTo(User::class);
     }
 
+    public function scopeToday()
+    {
+        return static::query()
+            ->whereDate('created_at', today());
+    }
+
     public static function create(array $data): self
     {
         $step = static::query()->create([

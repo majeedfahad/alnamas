@@ -48,4 +48,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Steps::class);
     }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(BestImage::class);
+    }
 }

@@ -3,12 +3,11 @@
 namespace App\Http\Requests;
 
 use App\Exceptions\BusinessException;
-use App\Models\Steps;
-use App\Models\User;
+use App\Models\BestImage;
 use App\Rules\OnceADay;
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreStepsRequest extends FormRequest
+class BestImageRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -18,12 +17,11 @@ class StoreStepsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'count' => 'required|integer|min:1',
             'image' => [
                 'required',
                 'image',
                 'max:2048',
-                new OnceADay(Steps::class),
+                new OnceADay(BestImage::class),
             ],
         ];
     }

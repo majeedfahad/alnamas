@@ -5,13 +5,12 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreStepsRequest;
 use App\Models\Steps;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class StepsController extends Controller
 {
     public function index(Request $request)
     {
-        $steps = Steps::all();
+        $steps = Steps::query()->today()->paginate(3);
 
         return view('steps.index', compact('steps'));
     }
