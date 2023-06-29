@@ -28,7 +28,7 @@
             </a>
         </li>
         <li class="mb-5">
-            <a href="{{config('services.mulatham.url')}}">
+            <a href="{{config('services.mulatham.url') . '/home'}}">
                 <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <span> اليحياوي الملثم </span>
             </a>
@@ -48,7 +48,12 @@
             <i class="fa-solid fa-cloud-arrow-up"></i>
         </li>
     </ul>
-    <div class="signOut"><a href="#">تسجيل الخروج</a></div>
+    <div class="signOut"><a href="#" onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">تسجيل الخروج</a></div>
+
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form>
 
 </div>
 <!-- End Sidebar -->
