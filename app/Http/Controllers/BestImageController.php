@@ -45,9 +45,18 @@ class BestImageController extends Controller
         return back();
     }
 
-    public function toggleVote(BestImage $image)
+    public function vote(BestImage $image)
     {
-        $this->authorize('vote', BestImage::class);
+        $this->authorize('vote', $image);
+
+        $image->vote(auth()->user());
+
+        return back();
+    }
+
+    public function unvote(BestImage $image)
+    {
+        $this->authorize('unvote', $image);
 
         $image->vote(auth()->user());
 

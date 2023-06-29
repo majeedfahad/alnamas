@@ -2,6 +2,8 @@
 
 namespace App\Policies;
 
+use App\Models\BestImage;
+use App\Models\BestImage\Interaction;
 use App\Models\User;
 
 class BestImagePolicy
@@ -14,8 +16,15 @@ class BestImagePolicy
         //
     }
 
-    public function vote(User $user)
+    public function vote(User $user, BestImage $image): bool
     {
-        return $user->isVoter();
+        return $user->isVoter() &&
+            Interaction::userNotVotedToday($user);
+    }
+
+    public function unvote(User $user, BestImage $image): bool
+    {
+        return $user->isVoter() &&
+            $image->isVotedBy($user);
     }
 }

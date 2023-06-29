@@ -97,9 +97,7 @@ class BestImage extends Model implements HasMedia
         $this->votes()->where('interacted_by', $user->id)->delete();
     }
 
-
-
-    private function isVotedBy(User $user): bool
+    public function isVotedBy(User $user): bool
     {
         return $this->votes()->where('interacted_by', $user->id)->exists();
     }
