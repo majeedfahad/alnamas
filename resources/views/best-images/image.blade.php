@@ -13,7 +13,11 @@
                 <li class="p-1 m-1"><a href="{{route('best-images.toggleLike', ['image' => $image])}}"><i class="fa-solid fa-heart text-danger"></i></a> {{$image->likes()->count()}}
                 </li>
                 @can('vote', $image)
-                <li class="p-1 m-1"><a href="{{route('best-images.toggleVote', ['image' => $image])}}"><i class="fa-solid fa-paper-plane"></i></a> {{$image->votes()->count()}}
+                <li class="p-1 m-1"><a href="{{route('best-images.vote', ['image' => $image])}}" class="btn btn-outline-info">تقييم</a>
+                </li>
+                @endcan
+                @can('unvote', $image)
+                <li class="p-1 m-1"><a href="{{route('best-images.unvote', ['image' => $image])}}" class="btn btn-outline-danger">إلغاء التقييم</a>
                 </li>
                 @endcan
             </ul>
