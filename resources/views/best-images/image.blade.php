@@ -12,7 +12,10 @@
             <ul class="d-flex">
                 <li class="p-1 m-1"><a href="{{route('best-images.toggleLike', ['image' => $image])}}"><i class="fa-solid fa-heart text-danger"></i></a> {{$image->likes()->count()}}
                 </li>
-                <li class="p-1 m-1"><a href="#"><i class="fa-solid fa-paper-plane"></i></a></li>
+                @can('vote', $image)
+                <li class="p-1 m-1"><a href="{{route('best-images.toggleVote', ['image' => $image])}}"><i class="fa-solid fa-paper-plane"></i></a> {{$image->votes()->count()}}
+                </li>
+                @endcan
             </ul>
         </div>
     </div>

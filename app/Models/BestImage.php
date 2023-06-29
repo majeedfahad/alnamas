@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\BestImage\Like;
+use App\Models\BestImage\Interaction;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -31,7 +31,12 @@ class BestImage extends Model implements HasMedia
 
     public function likes(): HasMany
     {
-        return $this->hasMany(Like::class, 'best_image_id');
+        return $this->hasMany(Interaction::class, 'best_image_id')->where('type', 'like');
+    }
+
+    public function votes(): HasMany
+    {
+        return $this->hasMany(Interaction::class, 'best_image_id')->where('type', 'vote');
     }
 
     public function scopeToday()
@@ -60,17 +65,42 @@ class BestImage extends Model implements HasMedia
         }
 
         $this->likes()->create([
-            'liked_by' => $user->id,
+            'interacted_by' => $user->id,
         ]);
     }
 
     public function unlike(User $user): void
     {
-        $this->likes()->where('liked_by', $user->id)->delete();
+        $this->likes()->where('interacted_by', $user->id)->delete();
     }
 
     private function isLikedBy(User $user): bool
     {
-        return $this->likes()->where('liked_by', $user->id)->exists();
+        return $this->likes()->where('interacted_by', $user->id)->exists();
+    }
+
+    public function vote(User $user)
+    {
+        if ($this->isVotedBy($user)) {
+            $this->unvote($user);
+            return;
+        }
+
+        $this->votes()->create([
+            'interacted_by' => $user->id,
+            'type' => 'vote',
+        ]);
+    }
+
+    public function unvote(User $user)
+    {
+        $this->votes()->where('interacted_by', $user->id)->delete();
+    }
+
+
+
+    private function isVotedBy(User $user): bool
+    {
+        return $this->votes()->where('interacted_by', $user->id)->exists();
     }
 }

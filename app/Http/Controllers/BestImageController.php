@@ -38,41 +38,18 @@ class BestImageController extends Controller
         return redirect()->route('best-images.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
-
     public function toggleLike(BestImage $image)
     {
         $image->like(auth()->user());
+
+        return back();
+    }
+
+    public function toggleVote(BestImage $image)
+    {
+        $this->authorize('vote', BestImage::class);
+
+        $image->vote(auth()->user());
 
         return back();
     }

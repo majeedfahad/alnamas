@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class Like extends Model
+class Interaction extends Model
 {
     use HasFactory;
 
-    protected $table = 'best_images_likes';
+    protected $table = 'best_images_interactions';
 
     protected $guarded = [];
 
@@ -23,6 +23,6 @@ class Like extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'liked_by');
+        return $this->belongsTo(User::class, 'interacted_by');
     }
 }
