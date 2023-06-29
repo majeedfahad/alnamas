@@ -32,6 +32,7 @@ return [
     ],
 
     'mulatham' => [
+        'enabled' => env('MULATHAM_ENABLED', false),
         'url' => env('MULATHAM_URL'),
     ]
 
