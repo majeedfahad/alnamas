@@ -51,10 +51,10 @@
                         <form method="POST" action="{{ route('register') }}" class="content login-form">
                             @csrf
 
-                            <div class="row mb-3 text-right">
+                            <div class=" mb-3 text-right">
                                 <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('الاسم') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="">
                                     <input id="name" type="text"
                                            class="form-control @error('name') is-invalid @enderror"
                                            name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="الاسم الكريم">
@@ -67,11 +67,11 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3 text-right">
+                            <div class=" mb-3 text-right">
                                 <label for="password"
                                        class="col-md-4 col-form-label text-md-end">{{ __('كلمة المرور') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="">
                                     <input id="password" type="password"
                                            class="form-control @error('password') is-invalid @enderror" name="password"
                                            required
@@ -86,11 +86,9 @@
                             </div>
 
                             <div class="row mb-0">
-                                <div class="col-md-6 offset-md-4">
                                     <button type="submit" class="btn main-btn" style="width: 100%;">
                                         {{ __('تسجيل') }}
                                     </button>
-                                </div>
                             </div>
                         </form>
                     </div>
