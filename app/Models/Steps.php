@@ -45,4 +45,11 @@ class Steps extends Model implements HasMedia
 
         return $step;
     }
+
+    public function approve()
+    {
+        $this->update(['approved' => true,]);
+
+        return $this;
+    }
 }

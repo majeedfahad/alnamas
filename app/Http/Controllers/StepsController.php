@@ -28,4 +28,13 @@ class StepsController extends Controller
 
         return redirect()->route('steps.index');
     }
+
+    public function approve(Steps $step)
+    {
+        $this->authorize('approve', Steps::class);
+
+        $step->approve();
+
+        return redirect()->route('steps.index')->with('success', 'Steps approved');
+    }
 }
