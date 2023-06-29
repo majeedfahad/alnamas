@@ -67,4 +67,7 @@ $('.account-pics').on('click', function () {
         $('.time-element').css('width','0')
     });
 })
+$('.get-started').on('click', function () {
+    $('.conty').toggleClass('form')
+})
 

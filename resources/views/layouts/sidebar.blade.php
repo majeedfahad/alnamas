@@ -34,11 +34,14 @@
             </a>
         </li>
         <li class="mb-5 d-flex justify-content-between">
-            <a href="{{route('best-images.index')}}">
+
+            <a href="{{route('best-images.index')}}" >
                 <i class="fa-solid fa-image"></i>
                 <span> صورة اليوم </span>
             </a>
-            <i class="fa-solid fa-cloud-arrow-up"></i>
+            <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#add-image">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+            </a>
         </li>
         <li class="mb-5 d-flex justify-content-between">
             <a href="{{route('steps.index')}}">
