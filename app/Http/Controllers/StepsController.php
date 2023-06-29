@@ -31,7 +31,7 @@ class StepsController extends Controller
 
     public function approve(Steps $step)
     {
-        $this->authorize('approve', Steps::class);
+        $this->authorize('approve', $step);
 
         $step->approve();
 

@@ -2,6 +2,7 @@
 
 namespace App\Policies;
 
+use App\Models\Steps;
 use App\Models\User;
 
 class StepsPolicy
@@ -14,8 +15,8 @@ class StepsPolicy
         //
     }
 
-    public function approve(User $user)
+    public function approve(User $user, Steps $steps): bool
     {
-        return $user->isAdmin();
+        return $user->isAdmin() && !$steps->isApproved();
     }
 }

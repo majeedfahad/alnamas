@@ -25,4 +25,20 @@ class Interaction extends Model
     {
         return $this->belongsTo(User::class, 'interacted_by');
     }
+
+    public function scopeToday()
+    {
+        return static::query()
+            ->whereDate('created_at', today());
+    }
+
+    public static function userVotedToday(User $user): bool
+    {
+        return static::query()->today()->where('interacted_by', $user->id)->exists();
+    }
+
+    public static function userNotVotedToday(User $user): bool
+    {
+        return !static::userVotedToday($user);
+    }
 }
