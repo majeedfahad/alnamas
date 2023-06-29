@@ -18,11 +18,7 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for serialization.
@@ -52,5 +48,34 @@ class User extends Authenticatable
     public function images(): HasMany
     {
         return $this->hasMany(BestImage::class);
+    }
+
+    public function isUser(): bool
+    {
+        return $this->role == 'user';
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role == 'admin';
+    }
+
+    public function isVoter(): bool
+    {
+        return $this->role == 'voter';
+    }
+
+    public function makeAsAdmin(): self
+    {
+        $this->update(['role' => 'admin',]);
+
+        return $this;
+    }
+
+    public function makeAsVoter(): self
+    {
+        $this->update(['role' => 'voter',]);
+
+        return $this;
     }
 }

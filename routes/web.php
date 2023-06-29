@@ -25,5 +25,6 @@ Route::middleware(['auth'])->group(function() {
     Route::resource('steps', StepsController::class)->only(['index', 'create', 'store']);
 
     Route::get('best-images/{image}/toggleLike', [BestImageController::class, 'toggleLike'])->name('best-images.toggleLike');
+    Route::get('best-images/{image}/toggleVote', [BestImageController::class, 'toggleVote'])->name('best-images.toggleVote');
     Route::resource('best-images', BestImageController::class)->only(['index', 'create', 'store']);
 });
