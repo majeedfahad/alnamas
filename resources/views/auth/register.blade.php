@@ -84,7 +84,7 @@
         <!-- Start Content-->
         <div class="container-fluid d-flex flex-column align-items-center justify-content-center" style="height: 70vh">
             <div style="height: 50% ; " class="d-flex flex-column  justify-content-end">
-                <img src="{{asset('/img/quiz.png')}}" alt="" style="max-width: 300px;" class="d-block mx-auto">
+                <img src="{{asset('/img/logo.png')}}" alt="" style="max-width: 300px;" class="d-block mx-auto">
 
             </div>
 
