@@ -71,3 +71,17 @@ $('.get-started').on('click', function () {
     $('.conty').toggleClass('form')
 })
 
+
+// Bottom bar active icons
+
+var currentPage = window.location.href;;
+
+$('.bottom-bar ul li a').each(function() {
+    var link = $(this).attr('href');
+
+    if (link === currentPage) {
+        $(this).parent().addClass('active');
+        $(this).find('i').addClass('active-icon');
+    }
+    console.log(currentPage)
+});
