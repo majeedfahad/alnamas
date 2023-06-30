@@ -1,15 +1,8 @@
 @extends('layouts.master')
 @section('content')
     <div class="row">
-        <div class="col-12 d-flex stories">
-            <div class="account-pics m-2">
-                <div class="account-pics m-2 " data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    <img src="https://placehold.co/60x60" alt="" class="rounded-circle">
-                    <p>زيد عبدالرحمن</p>
-                </div>
-            </div>
+        @include('includes.stories')
 
-        </div>
         <div class="col-md-4 post-format mb-2">
             <div class="card post">
                 <div class="card-top d-flex align-items-center p-1 my-1">
