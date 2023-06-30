@@ -19,10 +19,9 @@
             </div>
         </div>
     </div>
-    <div class="my-3">
 
+    <div class="my-3">
         <div class=" text-center">
-            {{--     Images / Quiz / Posts           --}}
             <div class="row">
                 @foreach($images as $image)
                     @include('best-images.image')
