@@ -317,6 +317,7 @@ return [
     'middleware' => [
         'auth' => [
             Authenticate::class,
+            \App\Http\Middleware\IsAdmin::class
         ],
         'base' => [
             EncryptCookies::class,
