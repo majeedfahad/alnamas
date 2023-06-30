@@ -76,6 +76,9 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
+        $user->addMediaFromRequest('image')
+            ->toMediaCollection();
+
         if(config('services.mulatham.enabled') && $user) {
             $response = app(PendingRequest::class)
                 ->post(config('services.mulatham.url') . '/api/register', $data);

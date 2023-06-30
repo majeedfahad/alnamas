@@ -90,7 +90,7 @@
 
             <div class="row  d-flex flex-column align-items-center justify-content-center conty"
                  style="height: 50% ;">
-                <div class="side front">
+                <div class="side front" style="height: 120%">
                     <div class="content text-center d-flex flex-column align-items-center justify-content-center">
                         <h3 class="mt-4 mb-3">عنوان فرعي تشجيعي او ترفيهي</h3>
                         <p>
@@ -107,16 +107,16 @@
                     </div>
                 </div>
                 <div class="side back">
-                    <form method="POST" action="{{ route('register') }}" class="content login-form">
+                    <form method="POST" action="{{ route('register') }}" class="content login-form" enctype="multipart/form-data">
                         @csrf
 
                         <div class=" mb-3 text-right">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('الاسم') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('اسمك الثنائي') }}</label>
 
                             <div class="">
                                 <input id="name" type="text"
                                        class="form-control @error('name') is-invalid @enderror"
-                                       name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="الاسم الكريم">
+                                       name="name" value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="بيكون اسم المستخدم">
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -137,6 +137,24 @@
                                        autocomplete="new-password" placeholder="*****">
 
                                 @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class=" mb-3 text-right">
+                            <label for="image"
+                                   class="col-md-4 col-form-label text-md-end">{{ __('') }}</label>
+
+                            <div class="">
+                                <input id="image" type="file"
+                                       class="form-control @error('image') is-invalid @enderror" name="image"
+                                       required
+                                       accept="image/*">
+
+                                @error('image')
                                 <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

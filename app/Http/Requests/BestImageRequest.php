@@ -34,4 +34,10 @@ class BestImageRequest extends FormRequest
             'image.max' => 'معليش السيرفر زحمة لازم صورة اقل من 2MB',
         ];
     }
+
+    public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator): void
+    {
+        throw new BusinessException($validator->errors()->first());
+        parent::failedValidation($validator);
+    }
 }

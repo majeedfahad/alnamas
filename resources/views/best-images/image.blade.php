@@ -1,7 +1,8 @@
 <div class="col-md-4 mb-2">
     <div class="card post">
         <div class="card-top d-flex align-items-center p-1 my-1">
-            <img src="https://placehold.co/50x50" alt="" class="profile rounded-circle">
+            <img src="{{$image->user->getFirstMediaUrl() != '' ? $image->user->getFirstMediaUrl() : 'https://placehold.co/50x50'}}"
+                 class="profile rounded-circle" style="width: 50px; height: 50px">
             <div>
                 <strong class="m-2">{{$image->user->name}}</strong>
             </div>
