@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Exceptions\BusinessException;
 use App\Models\BestImage\Interaction;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -64,6 +65,9 @@ class BestImage extends Model implements HasMedia
             return;
         }
 
+        if ($this->user_id === $user->id) {
+            throw new BusinessException('ما تعطي نفسك لايك يا وحش 🌚');
+        }
         $this->likes()->create([
             'interacted_by' => $user->id,
         ]);
@@ -74,7 +78,7 @@ class BestImage extends Model implements HasMedia
         $this->likes()->where('interacted_by', $user->id)->delete();
     }
 
-    private function isLikedBy(User $user): bool
+    public function isLikedBy(User $user): bool
     {
         return $this->likes()->where('interacted_by', $user->id)->exists();
     }
