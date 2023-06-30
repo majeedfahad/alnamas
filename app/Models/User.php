@@ -78,4 +78,11 @@ class User extends Authenticatable
 
         return $this;
     }
+
+    public function makeAsUser(): self
+    {
+        $this->update(['role' => 'user',]);
+
+        return $this;
+    }
 }

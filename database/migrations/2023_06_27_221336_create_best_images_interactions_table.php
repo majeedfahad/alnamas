@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('type')->default('like');
             $table->timestamps();
 
-            $table->unique(['best_image_id', 'interacted_by']);
+            $table->unique(['best_image_id', 'interacted_by', 'type']);
         });
     }
 
