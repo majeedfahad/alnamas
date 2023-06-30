@@ -6,6 +6,7 @@ use App\Exceptions\BusinessException;
 use App\Models\Steps;
 use App\Models\User;
 use App\Rules\OnceADay;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreStepsRequest extends FormRequest
@@ -23,7 +24,7 @@ class StoreStepsRequest extends FormRequest
                 'required',
                 'image',
                 'max:2048',
-                new OnceADay(Steps::class),
+//                new OnceADay(Steps::class),
             ],
         ];
     }
@@ -35,5 +36,11 @@ class StoreStepsRequest extends FormRequest
             'image.image' => 'صورة الله يخليك ارفع صورة',
             'image.max' => 'معليش السيرفر زحمة لازم صورة اقل من 2MB',
         ];
+    }
+
+    public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator): void
+    {
+        Alert::error('اوووووووووووبس', $validator->errors()->first());
+        parent::failedValidation($validator);
     }
 }

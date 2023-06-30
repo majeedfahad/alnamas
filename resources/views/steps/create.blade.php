@@ -25,7 +25,7 @@
 
                             <div class="file-upload">
                                 <div class="image-upload-wrap">
-                                    <input id="image" name="image" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" required/>
+                                    <input id="image" name="image" class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*"/>
                                     <div class="drag-text">
                                         <i class="fa-solid fa-image"></i>
                                         <h3>صورة التحقق من المصداقية والموثوقية والأمانة والعدالة</h3>

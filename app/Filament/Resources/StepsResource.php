@@ -1,0 +1,85 @@
+<?php
+
+namespace App\Filament\Resources;
+
+use App\Filament\Resources\StepsResource\Pages;
+use App\Filament\Resources\StepsResource\RelationManagers;
+use App\Models\Steps;
+use Filament\Forms;
+use Filament\Resources\Form;
+use Filament\Resources\Resource;
+use Filament\Resources\Table;
+use Filament\Tables;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\SoftDeletingScope;
+
+class StepsResource extends Resource
+{
+    protected static ?string $model = Steps::class;
+    protected static ?string $label = 'الخطوات';
+
+    protected static ?string $navigationIcon = 'heroicon-o-collection';
+
+    public static function form(Form $form): Form
+    {
+        return $form
+            ->schema([
+                Forms\Components\Select::make('user_id')
+                    ->relationship('user', 'name')
+                    ->required()
+                    ->disabled(),
+                Forms\Components\TextInput::make('count')
+                    ->required()
+                    ->disabled(),
+                Forms\Components\SpatieMediaLibraryFileUpload::make('image')
+                    ->collection('default')
+                    ->disabled(),
+            ]);
+    }
+
+    public static function table(Table $table): Table
+    {
+        return $table
+            ->columns([
+                Tables\Columns\TextColumn::make('user.name')
+                    ->label('المستخدم'),
+                Tables\Columns\TextColumn::make('count')
+                    ->label('عدد الخطوات'),
+                Tables\Columns\IconColumn::make('approved')
+                    ->label('مقبول')
+                    ->boolean(),
+            ])
+            ->filters([
+                Tables\Filters\Filter::make('today')
+                    ->query(function (Builder $query) {
+                        $query->whereDate('created_at', today());
+                    }),
+                Tables\Filters\Filter::make('unapproved')
+                    ->query(function (Builder $query) {
+                        $query->where('approved', false);
+                    }),
+            ])
+            ->actions([
+                Tables\Actions\EditAction::make(),
+            ])
+            ->bulkActions([
+                Tables\Actions\DeleteBulkAction::make(),
+            ]);
+    }
+
+    public static function getRelations(): array
+    {
+        return [
+            //
+        ];
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ListSteps::route('/'),
+            'create' => Pages\CreateSteps::route('/create'),
+            'edit' => Pages\EditSteps::route('/{record}/edit'),
+        ];
+    }
+}
