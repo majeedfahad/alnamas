@@ -1,5 +1,5 @@
 <!--- Sidemenu -->
-<div class="sidebar-menu d-flex flex-column justify-content-between" style="height: 100%">
+<div class="sidebar-menu d-flex flex-column justify-content-between d-none d-md-block" style="height: 100%">
     <div class="profile-avatar  text-center">
         <img src="https://placehold.co/90x90" alt="" class="rounded-circle">
         <p>زيد عبدالرحمن</p>

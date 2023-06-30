@@ -24,12 +24,13 @@
             <div class="col-md-2">
                 {{-- Calling sidebar --}}
                 @include('layouts.sidebar')
+                @include('layouts.bottombar')
             </div>
             <div class="col-md-10">
                 <!-- ============================================================= -->
                 <!-- Start Page Content here -->
                 <!-- ============================================================== -->
-                <div class="content-page  p-3">
+                <div class="content-page  p-md-3">
                     <div class="content">
                         <!-- Start Content-->
                         <div class="container-fluid">
