@@ -24,7 +24,7 @@ class StoreStepsRequest extends FormRequest
                 'required',
                 'image',
                 'max:2048',
-//                new OnceADay(Steps::class),
+                new OnceADay(Steps::class),
             ],
         ];
     }
