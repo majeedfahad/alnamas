@@ -11,7 +11,13 @@
         <img src="{{$image->getFirstMediaUrl()}}" alt="" class="post-img">
         <div class="actions p-2">
             <ul class="d-flex">
-                <li class="p-1 m-1"><a href="{{route('best-images.toggleLike', ['image' => $image])}}"><i class="fa-solid fa-heart text-danger"></i></a> {{$image->likes()->count()}}
+                <li class="p-1 m-1"><a href="{{route('best-images.toggleLike', ['image' => $image])}}">
+                        @if($image->isLikedBy(auth()->user()))
+                        <i class="fa-solid fa-heart text-danger"></i>
+                        @else
+                            <i class="fa-regular fa-heart text-danger"></i>
+                        @endif
+                    </a> {{$image->likes()->count()}}
                 </li>
                 @can('vote', $image)
                 <li class="p-1 m-1"><a href="{{route('best-images.vote', ['image' => $image])}}" class="btn btn-outline-info">تقييم</a>
