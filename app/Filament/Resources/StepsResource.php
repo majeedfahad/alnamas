@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class StepsResource extends Resource
 {
     protected static ?string $model = Steps::class;
-    protected static ?string $label = 'الخطوات';
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -26,14 +25,13 @@ class StepsResource extends Resource
             ->schema([
                 Forms\Components\Select::make('user_id')
                     ->relationship('user', 'name')
-                    ->required()
-                    ->disabled(),
+                    ->required(),
                 Forms\Components\TextInput::make('count')
+                    ->required(),
+                Forms\Components\SpatieMediaLibraryFileUpload::make('default')
+                    ->collection('default'),
+                Forms\Components\DateTimePicker::make('created_at')
                     ->required()
-                    ->disabled(),
-                Forms\Components\SpatieMediaLibraryFileUpload::make('image')
-                    ->collection('default')
-                    ->disabled(),
             ]);
     }
 
@@ -42,29 +40,31 @@ class StepsResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
-                    ->label('المستخدم'),
+                    ->label('المستخدم')
+                    ->searchable(),
                 Tables\Columns\TextColumn::make('count')
-                    ->label('عدد الخطوات'),
+                    ->label('عدد الخطوات')
+                    ->sortable(),
                 Tables\Columns\IconColumn::make('approved')
                     ->label('مقبول')
                     ->boolean(),
             ])
             ->filters([
-                Tables\Filters\Filter::make('today')
-                    ->query(function (Builder $query) {
-                        $query->whereDate('created_at', today());
-                    }),
-                Tables\Filters\Filter::make('unapproved')
-                    ->query(function (Builder $query) {
-                        $query->where('approved', false);
-                    }),
-            ])
-            ->actions([
-                Tables\Actions\EditAction::make(),
-            ])
-            ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-            ]);
+        Tables\Filters\Filter::make('today')
+            ->query(function (Builder $query) {
+                $query->whereDate('created_at', today());
+            })->label('اليوم'),
+        Tables\Filters\Filter::make('unapproved')
+            ->query(function (Builder $query) {
+                $query->where('approved', false);
+            })->label('غير مقبول'),
+    ])
+        ->actions([
+            Tables\Actions\EditAction::make(),
+        ])
+        ->bulkActions([
+            Tables\Actions\DeleteBulkAction::make(),
+        ]);
     }
 
     public static function getRelations(): array

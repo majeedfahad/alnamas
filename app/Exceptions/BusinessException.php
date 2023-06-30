@@ -9,6 +9,7 @@ class BusinessException extends Exception
 {
     public function render()
     {
+        Alert::error('اوووووووووبسس!!!!!', $this->getMessage());
         return back();
     }
 }

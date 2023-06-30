@@ -40,7 +40,7 @@ class StoreStepsRequest extends FormRequest
 
     public function failedValidation(\Illuminate\Contracts\Validation\Validator $validator): void
     {
-        Alert::error('اوووووووووووبس', $validator->errors()->first());
+        throw new BusinessException($validator->errors()->first());
         parent::failedValidation($validator);
     }
 }
