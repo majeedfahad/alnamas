@@ -16,8 +16,10 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class UserResource extends Resource
 {
     protected static ?string $model = User::class;
+    protected static ?string $modelLabel = 'المستخدمين';
+    protected static ?string $pluralModelLabel = 'المستخدمين';
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-users';
 
     public static function form(Form $form): Form
     {
@@ -33,16 +35,21 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('name')
+                    ->label('الاسم')
+                ->searchable(),
                 Tables\Columns\TextColumn::make('role')
-                ->default([
+                ->enum([
                     'user' => 'مستخدم',
                     'voter' => 'مصوت',
-                    'admin' => 'مدير'
+                    'admin' => 'مدير',
                 ])
+                ->label('الصلاحية'),
             ])
             ->filters([
-                //
+                Tables\Filters\Filter::make('voter')
+                    ->label('مصوت')
+                    ->query(fn(Builder $query) => $query->where('role', 'voter')),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -51,7 +58,7 @@ class UserResource extends Resource
                     ->action(fn($record) => $record->makeAsVoter())
                     ->requiresConfirmation()
                     ->color('success')
-                ->visible(fn($record) => $record->isUser()),
+                    ->visible(fn($record) => $record->isUser()),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
