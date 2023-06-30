@@ -16,8 +16,9 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class StepsResource extends Resource
 {
     protected static ?string $model = Steps::class;
+    protected static ?string $pluralModelLabel = 'الخطوات';
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'ri-footprint-line';
 
     public static function form(Form $form): Form
     {

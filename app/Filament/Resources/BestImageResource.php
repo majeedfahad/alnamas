@@ -16,8 +16,9 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class BestImageResource extends Resource
 {
     protected static ?string $model = BestImage::class;
+    protected static ?string $pluralModelLabel = 'الصور';
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'far-images';
 
     public static function form(Form $form): Form
     {
@@ -26,8 +27,8 @@ class BestImageResource extends Resource
                 Forms\Components\Select::make('user_id')
                     ->relationship('user', 'name')
                     ->required(),
-                Forms\Components\SpatieMediaLibraryFileUpload::make('image')
-                    ->collection('image'),
+                Forms\Components\SpatieMediaLibraryFileUpload::make('default')
+                    ->collection('default'),
             ]);
     }
 
@@ -36,9 +37,18 @@ class BestImageResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('user.name'),
+                Tables\Columns\TextColumn::make('likes_count')
+                    ->label('الاعجابات')
+                    ->sortable(),
+                Tables\Columns\TextColumn::make('votes_count')
+                    ->label('التصويتات')
+                    ->sortable(),
             ])
             ->filters([
-                //
+                Tables\Filters\Filter::make('today')
+                    ->query(function (Builder $query) {
+                        $query->whereDate('created_at', today());
+                    })->label('اليوم'),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Exceptions\BusinessException;
 use App\Models\BestImage\Interaction;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -15,6 +16,8 @@ class BestImage extends Model implements HasMedia
 {
     use HasFactory,
         InteractsWithMedia;
+
+    protected $withCount = ['votes', 'likes'];
 
     protected $table = 'best_images';
 

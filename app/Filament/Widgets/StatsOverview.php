@@ -17,7 +17,8 @@ class StatsOverview extends BaseWidget
         return [
             Card::make('عدد المسجلين', User::count()),
             Card::make('عدد الخطوات', Steps::sum('count')),
-            Card::make('اعلى خطوات امس', $maxStepsYesterday?->user->name ?? 'لا يوجد'),
+            Card::make('اعلى خطوات امس', $maxStepsYesterday?->user->name ?? 'لا يوجد')
+            ->description($maxStepsYesterday?->count . " خطوة" ?? 'لا يوجد'),
         ];
     }
 }
