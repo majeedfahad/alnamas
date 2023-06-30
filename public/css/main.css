@@ -7,7 +7,9 @@
 :root {
     --main-color: rgb(130, 0, 251)
 }
-
+.main-color{
+    color:var(--main-color)
+}
 body {
     direction: rtl;
     background: white;
@@ -194,18 +196,11 @@ ul {
 }
 
 .remove-image {
-    width: 200px;
-    margin: 0;
-    color: #ffffff;
-    background: #cd4535;
     border: none;
     padding: 10px;
     border-radius: 4px;
-    border-bottom: 4px solid #b02818;
     transition: all 0.2s ease;
     outline: none;
-    text-transform: uppercase;
-    font-weight: 700;
 }
 
 .remove-image:hover {
@@ -343,5 +338,46 @@ ul {
     .content-page{
         border-radius: 12px;
         padding-bottom: 120px;
+    }
+    .best-image-form .file-upload-image{
+        width: 100%;
+        height: 200px;
+        border-radius: 10px !important;
+        object-fit: cover;
+    }
+    .best-image-form input::placeholder ,
+    .best-image-form input {
+        font-size: 12px;
+    }
+    .image-title-wrap{
+        position: absolute;
+        top: 5px;
+        right: -5px;
+    }
+    .best-image-form .remove-image{
+        height: 25px;
+        width: 25px;
+        font-size: 11px;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border:1px solid #842029;
+        background: #842029;
+        color: white;
+    }
+    .best-image-form .btn{
+        font-size: 12px;
+    }
+    .bottom-bar i{
+        padding: 6px;
+
+    }
+    .active-icon {
+        border-radius: 20px;
+        background-color: #1a202c;
+        color: white;
+        display: block;
+        margin: auto;
     }
 }

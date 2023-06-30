@@ -14,11 +14,19 @@
                 صورة اليوم
             </a>
         </li>
+
         <li>
             <a href="{{route('steps.index')}}">
                 <i class="fa-solid fa-person-walking"></i>
 
                 تحدي المشي
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <i class="fa-solid fa-address-card"></i>
+
+                البروفايل
             </a>
         </li>
     </ul>
