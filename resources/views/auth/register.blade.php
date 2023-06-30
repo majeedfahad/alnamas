@@ -146,7 +146,7 @@
 
                         <div class=" mb-3 text-right">
                             <label for="image"
-                                   class="col-md-4 col-form-label text-md-end">{{ __('') }}</label>
+                                   class="col-md-4 col-form-label text-md-end">{{ __('هب لنا صورة للحساب') }}</label>
 
                             <div class="">
                                 <input id="image" type="file"

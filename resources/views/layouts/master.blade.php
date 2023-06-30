@@ -46,6 +46,7 @@
     </div>
 </div>
 @include('modals.best-images.add-image')
+@include('modals.steps.add-steps')
 <!-- App js -->
 <script src="https://kit.fontawesome.com/94124166ee.js" crossorigin="anonymous"></script>
 <script src="{{asset('/js/jquery.js')}}"></script>
