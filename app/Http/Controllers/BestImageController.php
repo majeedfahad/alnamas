@@ -13,7 +13,7 @@ class BestImageController extends Controller
      */
     public function index()
     {
-        $images = BestImage::query()->today()->paginate(3);
+        $images = BestImage::query()->today()->get();
 
         return view('best-images.index', compact('images'));
     }

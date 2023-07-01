@@ -2,7 +2,7 @@
     <div class="card post">
         <div class="card-top d-flex align-items-center p-1 my-1">
             <img src="{{$image->user->getFirstMediaUrl() != '' ? $image->user->getFirstMediaUrl() : 'https://placehold.co/50x50'}}"
-                 class="profile rounded-circle" style="width: 50px; height: 50px">
+                 class="profile rounded-circle" style="width: 50px; height: 50px" loading="lazy">
             <div>
                 <strong class="m-2">{{$image->user->name}}</strong>
             </div>
