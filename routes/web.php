@@ -31,5 +31,8 @@ Route::middleware(['is_website_open'])->group(function() {
 });
 
 Route::get('/not-yet', function() {
+    if(config('app.is_website_open'))
+        return redirect()->route('home');
+
     return view('website-closed');
 })->name('website-closed');
