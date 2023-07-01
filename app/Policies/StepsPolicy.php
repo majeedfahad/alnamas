@@ -17,6 +17,6 @@ class StepsPolicy
 
     public function approve(User $user, Steps $steps): bool
     {
-        return $user->isAdmin() && !$steps->isApproved();
+        return $user->isAdmin() && $steps->isPending();
     }
 }
