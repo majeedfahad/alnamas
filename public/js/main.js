@@ -44,6 +44,7 @@ function readURL(input) {
             $('.image-upload-wrap').hide();
             $('.file-upload-image').attr('src', e.target.result);
             $('.file-upload-content').show();
+            $('.remove-image').removeClass('d-none');
             $('.image-title').html(input.files[0].name);
         };
 

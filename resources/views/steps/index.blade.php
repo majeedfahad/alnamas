@@ -20,10 +20,27 @@
     </style>
 @endsection
 @section('content')
+{{--
+    <form method="post" action="{{route('steps.store')}}" enctype="multipart/form-data">
+        @csrf
+        <div class="d-flex align-items-center">
+            <div>
+                <label for="count" class="mt-2 mb-1">عدد خطواتك اليوم </label>
+                <input id="count" class="form-control text-right" type="number" name="count" required placeholder="7500" style="width: 100%"/>
+            </div>
+        </div>
+        <small> الصورة التحقق من المصداقية والموثوقية والأمانة والعدالة👇 <span class="text-danger">*</span></small>
+        <label for="fileInput" class="file-input-label btn btn-dark mx-1 text-white mt-2 mb-1 fs-6 " style="width: 100%">
+            ارفع صورة لعدد خطواتك من الجوال
+        </label>
+        <input type="file" id="fileInput" name="image" style="display: none;" accept="image/*" onchange="readURL(this);" required>
+        <button type="submit" class=" text-white btn btn-dark mx-1 text-white mt-2 mb-1 fs-6" style="width: 100%">ارفع انجازك </button>
+    </form>
 
+--}}
     <div class="best-image-form  my-3">
-        <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#add-steps">
-            <i class="fa-solid fa-cloud-arrow-up"></i>
+        <a href="#" type="button" data-bs-toggle="modal" data-bs-target="#add-steps" class="text-white btn btn-dark mx-1 text-white mt-2 mb-1 fs-6" style="width: 100%;">
+            احجز مركزك في تحدي المشي !
         </a>
     </div>
     <div class="d-flex justify-content-between bg-light py-3 px-2 rounded-3 align-items-center shadow-sm">
@@ -48,4 +65,7 @@
         @endforeach
     </ul>
 
+@endsection
+@section('modals')
+    @include('modals.steps.add-steps')
 @endsection

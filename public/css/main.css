@@ -180,7 +180,7 @@ ul {
     font-weight: 100;
     text-transform: uppercase;
     color: #1a202c;
-    padding: 60px 0;
+    padding: 20px 0;
     text-align: center;
 }
 
@@ -197,7 +197,6 @@ ul {
 
 .remove-image {
     border: none;
-    padding: 10px;
     border-radius: 4px;
     transition: all 0.2s ease;
     outline: none;
@@ -322,6 +321,7 @@ ul {
     }
     .stories p{
         font-size: 13px;
+        white-space: nowrap;
     }
     .post-format{
         padding-right: 0;
@@ -349,7 +349,7 @@ ul {
     .best-image-form input {
         font-size: 12px;
     }
-    .image-title-wrap{
+    .best-image-form .image-title-wrap{
         position: absolute;
         top: 5px;
         right: -5px;

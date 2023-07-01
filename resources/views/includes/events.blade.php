@@ -1,4 +1,4 @@
-<div class="col-12 d-flex stories">
+<div class="col-12 d-flex stories" style="    overflow-x: scroll;">
     <div class="account-pics add-event m-2">
         <div class="account-pics  m-2 ">
             <img src="https://placehold.co/60x60" alt="" style="height: 60px; width: 60px" class="rounded-circle">
