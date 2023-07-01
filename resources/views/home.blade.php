@@ -2,7 +2,6 @@
 @section('content')
     <div class="row">
         @include('includes.stories')
-
         <div class="col-md-4 post-format mb-2">
             <div class="card post">
                 <div class="card-top d-flex align-items-center p-1 my-1">
@@ -17,7 +16,6 @@
                 </div>
             </div>
         </div>
-
         <div class="col-md-4 post-format mb-2">
             <div class="card post">
                 <div class="card-top d-flex align-items-center p-1 my-1">
@@ -32,7 +30,6 @@
                 </div>
             </div>
         </div>
-
     </div>
     @include('modals.story.story')
 @endsection

@@ -1,4 +1,13 @@
 $(function () {
+    $('.step-places li').each(function(index) {
+        var delay = index * 300;
+
+        $(this).delay(delay).animate({ opacity: 1, top: 0 }, 500);
+    });
+
+
+
+
     const paragraphText = $('#username').text().replace(/\s/g, '');
     const firstLetter = paragraphText.charAt(0);
     $('.rounded-username').html(firstLetter);
@@ -23,10 +32,6 @@ $(function () {
         const b = (rgb >> 0) & 0xff;
         return (r * 299 + g * 587 + b * 114) / 1000;
     }
-
-    $('#image').on('change', function () {
-
-    })
 
 
 })
@@ -62,10 +67,7 @@ $('.image-upload-wrap').bind('dragleave', function () {
 });
 
 $('.account-pics').on('click', function () {
-    $('.time-element').animate({width: $(window).width()}, 3000, function () {
-        $('.close-modal').click();
-        $('.time-element').css('width','0')
-    });
+
 })
 $('.get-started').on('click', function () {
     $('.conty').toggleClass('form')
@@ -85,3 +87,4 @@ $('.bottom-bar ul li a').each(function() {
     }
     console.log(currentPage)
 });
+
