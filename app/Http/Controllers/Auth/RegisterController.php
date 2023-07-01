@@ -56,10 +56,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8'],
+            'password' => ['required', 'string'],
         ], [
             'name.unique' => 'الاسم مستخدم مسبقًا',
-            'password.min' => 'كلمة المرور يجب أن تكون 8 أحرف على الأقل',
         ]);
     }
 
