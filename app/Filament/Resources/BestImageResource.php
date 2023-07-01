@@ -43,6 +43,10 @@ class BestImageResource extends Resource
                 Tables\Columns\TextColumn::make('votes_count')
                     ->label('التصويتات')
                     ->sortable(),
+                Tables\Columns\TextColumn::make('total_rating')
+                    ->label('التقييم النهائي')
+                    ->getStateUsing(fn($record) => $record->getTotalRating())
+                    ->sortable(),
             ])
             ->filters([
                 Tables\Filters\Filter::make('today')
@@ -52,6 +56,12 @@ class BestImageResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\Action::make('make_as_best')
+                    ->label('ترشيح كأفضل صورة')
+                    ->action(fn($record) => $record->makeAsBest())
+                    ->requiresConfirmation()
+                    ->color('success')
+                    ->visible(fn($record) => $record->isUploadedToday() && !BestImage::isBestImageChosedToday()),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

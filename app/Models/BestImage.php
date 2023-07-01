@@ -24,6 +24,7 @@ class BestImage extends Model implements HasMedia
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
+        'is_best_today' => 'boolean',
     ];
 
     protected $guarded = [];
@@ -107,5 +108,31 @@ class BestImage extends Model implements HasMedia
     public function isVotedBy(User $user): bool
     {
         return $this->votes()->where('interacted_by', $user->id)->exists();
+    }
+
+    public static function isBestImageChosedToday(): bool
+    {
+        return static::query()->today()->where('is_best_today', true)->exists();
+    }
+
+    public function makeAsBest(): void
+    {
+        if (static::isBestImageChosedToday()) {
+            throw new BusinessException('اخترنا الصورة الفائزة لليوم');
+        }
+
+        $this->update([
+            'is_best_today' => true,
+        ]);
+    }
+
+    public function isUploadedToday(): bool
+    {
+        return $this->created_at->isToday();
+    }
+
+    public function getTotalRating()
+    {
+        return ($this->votes()->count() * 3) + $this->likes()->count();
     }
 }

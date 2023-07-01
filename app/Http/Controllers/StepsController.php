@@ -10,7 +10,11 @@ class StepsController extends Controller
 {
     public function index(Request $request)
     {
-        $steps = Steps::query()->today()->get();
+        $steps = Steps::query()
+            ->today()
+            ->get()
+            ->sortByDesc('count')
+            ->values(); // reset keys
 
         return view('steps.index', compact('steps'));
     }
