@@ -32,9 +32,9 @@
             <div class="row  d-flex flex-column align-items-center conty"
                  style="height: 50% ;">
                 <div class="content text-center d-flex flex-column align-items-center justify-content-center">
-                    <h3 class="mt-4 mb-3">ندري بتنفقعون من الحماس</h3>
+                    <h3 class="mt-4 mb-3">الكبييير وصل يا رجالة !!</h3>
                     <p>
-                        ترا مش حنبلغكم متى بيفتح الموقع، ادخل وشيك كل شوي وخذ السبق الصحفي في إعلان افتتاح الموقع
+                        مش حنبلغكم متى يفتح الموقع، ادخل شيك كل شوي وخذ السبق الصحفي في إعلان افتتاح الموقع
                     </p>
 
                 </div>

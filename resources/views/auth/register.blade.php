@@ -87,16 +87,20 @@
                 <img src="{{asset('/img/logo.png')}}" alt="" style="max-width: 300px;" class="d-block mx-auto">
 
             </div>
+            <div style="height: 10%">
+    </div>
 
             <div class="row  d-flex flex-column align-items-center justify-content-center conty"
                  style="height: 50% ;">
-                <div class="side front" style="height: 120%">
-                    <div class="content text-center d-flex flex-column align-items-center justify-content-center">
-                        <h3 class="mt-4 mb-3">عنوان فرعي تشجيعي او ترفيهي</h3>
+                <div class="side front" style="height: 196%">
+                    <div class="content text-center d-flex flex-column align-items-center justify-content-center"  style="height: 90%">
+                        <h3 class="mt-4 mb-3">لا تقولون انبهرتو توكم ما شفتوا شي !</h3>
                         <p>
-                            هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن
-                            التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها.
+                           
+                        سجل الإمتاع جاااي بالطريق 
+
                         </p>
+
 
                         <button class="btn main-btn get-started" style="    width: 100%;">
 
@@ -106,7 +110,7 @@
 
                     </div>
                 </div>
-                <div class="side back">
+                <div class="side back" style="height: 196%">
                     <form method="POST" action="{{ route('register') }}" class="content login-form" enctype="multipart/form-data">
                         @csrf
 
