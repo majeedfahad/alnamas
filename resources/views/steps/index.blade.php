@@ -51,7 +51,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="d-flex justify-content-center">
-                {!! $images->links() !!}
+                {!! $steps->links() !!}
             </div>
         </div>
     </div>
