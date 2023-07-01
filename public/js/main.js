@@ -1,3 +1,4 @@
+$('.custom-modal').hide()
 $(function () {
     $('.step-places li').each(function(index) {
         var delay = index * 300;
@@ -65,10 +66,19 @@ $('.image-upload-wrap').bind('dragover', function () {
 $('.image-upload-wrap').bind('dragleave', function () {
     $('.image-upload-wrap').removeClass('image-dropping');
 });
-
-$('.account-pics').on('click', function () {
-
+// View Events Modals
+$('.account-pics.event').on('click', function () {
+    $('.custom-modal.view-event').fadeIn()
 })
+$('.custom-modal .overlay').on('click', function () {
+    $('.custom-modal').fadeOut()
+})
+// Create Events Modals
+$('.account-pics.add-event').on('click', function () {
+    $('.custom-modal.create-event').fadeIn()
+});
+
+
 $('.get-started').on('click', function () {
     $('.conty').toggleClass('form')
 })
