@@ -186,4 +186,6 @@ return [
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
     ])->toArray(),
 
+    'is_website_open' => env('IS_WEBSITE_OPEN', true),
+
 ];

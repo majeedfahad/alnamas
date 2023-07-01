@@ -4,10 +4,9 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 use Symfony\Component\HttpFoundation\Response;
 
-class IsAdmin
+class IsWebsiteOpen
 {
     /**
      * Handle an incoming request.
@@ -16,9 +15,8 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth()->user()->isAdmin()) {
-            Alert::error('منتب عاقل ياهكر', 'بس معليش ماعندك صلاحية');
-            return redirect()->route('home');
+        if (!config('app.is_website_open')) {
+            return redirect()->route('website-closed');
         }
         return $next($request);
     }
