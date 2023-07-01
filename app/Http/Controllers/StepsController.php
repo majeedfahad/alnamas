@@ -10,7 +10,7 @@ class StepsController extends Controller
 {
     public function index(Request $request)
     {
-        $steps = Steps::query()->today()->paginate(3);
+        $steps = Steps::query()->today()->get();
 
         return view('steps.index', compact('steps'));
     }
