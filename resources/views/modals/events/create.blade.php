@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="custom-modal position-fixed create-event"
-     style="inset: 0 0 0 0; ; z-index: 99999">
+     style="inset: 0 0 0 0; ; z-index: 99999 ;display: none">
     <div class="overlay position-fixed" style="inset: 0 0 0 0; background-color: rgba(0,0,0,.2) ; z-index: 99999"></div>
     <div class="d-flex justify-content-center align-items-center " style="height: 100%;">
         <div class="bg-light p-4 rounded position-relative" style="z-index: 999999999">
