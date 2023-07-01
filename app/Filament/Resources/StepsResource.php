@@ -46,9 +46,13 @@ class StepsResource extends Resource
                 Tables\Columns\TextColumn::make('count')
                     ->label('عدد الخطوات')
                     ->sortable(),
-                Tables\Columns\IconColumn::make('approved')
+                Tables\Columns\TextColumn::make('approved')
                     ->label('مقبول')
-                    ->boolean(),
+                    ->enum([
+                        true => 'مقبول',
+                        false => 'مرفوض',
+                        null => 'معلق',
+                    ]),
             ])
             ->filters([
         Tables\Filters\Filter::make('today')
@@ -58,7 +62,11 @@ class StepsResource extends Resource
         Tables\Filters\Filter::make('unapproved')
             ->query(function (Builder $query) {
                 $query->where('approved', false);
-            })->label('غير مقبول'),
+            })->label('مرفوض'),
+        Tables\Filters\Filter::make('pending')
+            ->query(function (Builder $query) {
+                $query->where('approved', null);
+            })->label('معلق'),
     ])
         ->actions([
             Tables\Actions\EditAction::make(),

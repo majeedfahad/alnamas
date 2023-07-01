@@ -13,18 +13,17 @@ class EditSteps extends EditRecord
     protected function getActions(): array
     {
         return [
-            Actions\DeleteAction::make(),
             Actions\Action::make('Approve')
                 ->label('قبول')
                 ->action(fn() => $this->record->approve())
                 ->requiresConfirmation()
-                ->visible(fn() => !$this->record->isApproved())
-            ->color('success'),
-            Actions\Action::make('unApprove')
+                ->visible(fn() => $this->record->isPending())
+                ->color('success'),
+            Actions\Action::make('Reject')
                 ->label('رفض')
-                ->action(fn() => $this->record->disapprove())
+                ->action(fn() => $this->record->reject())
                 ->requiresConfirmation()
-                ->visible(fn() => $this->record->isApproved()),
+                ->visible(fn() => $this->record->isPending()),
         ];
     }
 }

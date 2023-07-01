@@ -38,6 +38,7 @@ class Steps extends Model implements HasMedia
         $step = static::query()->create([
             'count' => $data['count'],
             'user_id' => auth()->user()->id,
+            'approved' => null,
         ]);
 
         $step->addMediaFromRequest('image')
@@ -61,14 +62,14 @@ class Steps extends Model implements HasMedia
         return $this->approved === false;
     }
 
-    public function approve()
+    public function approve(): self
     {
         $this->update(['approved' => true]);
 
         return $this;
     }
 
-    public function disapprove(): static
+    public function reject(): self
     {
         $this->update(['approved' => false]);
 
