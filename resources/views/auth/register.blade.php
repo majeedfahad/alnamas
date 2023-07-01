@@ -83,7 +83,7 @@
     <div class="p-3">
         <!-- Start Content-->
         <div class="container-fluid d-flex flex-column align-items-center justify-content-center" style="height: 70vh">
-            <div style="height: 50% ; " class="d-flex flex-column  justify-content-end">
+            <div style="height: 60% ; " class="d-flex flex-column  justify-content-end">
                 <img src="{{asset('/img/logo.png')}}" alt="" style="max-width: 300px;" class="d-block mx-auto">
 
             </div>
@@ -94,10 +94,11 @@
                  style="height: 50% ;">
                 <div class="side front" style="height: 196%">
                     <div class="content text-center d-flex flex-column align-items-center justify-content-center"  style="height: 50%">
-                        <h3 class="mt-4 mb-3">لا تقولون انبهرتو توكم ما شفتوا شي !</h3>
+                        <h3 class="mt-4 mb-3">هلا بك والله جابك</h3>
                         <p>
                            
-                        سجل الإمتاع جاااي بالطريق 
+                        في ترفيهك وجوك 
+                       سجل الإمتاع جاااي بالطريق !
 
                         </p>
 
