@@ -18,6 +18,7 @@ class Steps extends Model implements HasMedia
     protected $casts = [
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
+        'approved' => 'boolean',
     ];
 
     protected $guarded = [];
