@@ -8,7 +8,8 @@
     @foreach($events as $event)
         <div class="account-pics event m-2">
             <div class="account-pics m-2 ">
-                <img src="{{$event->getFirstMediaUrl() != '' ? $event->getFirstMediaUrl() : "https://placehold.co/60x60"}}" alt="" style="height: 60px; width: 60px" class="rounded-circle">
+                <img src="{{$event->getFirstMediaUrl() != '' ? $event->getFirstMediaUrl() : "https://placehold.co/60x60"}}"
+                     alt="" style="height: 60px; width: 60px" class="rounded-circle" onclick="document.getElementById('show-event-modal').src = this.src;">
                 <p>{{$event->name}}</p>
             </div>
         </div>
