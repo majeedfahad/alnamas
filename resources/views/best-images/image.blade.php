@@ -2,14 +2,16 @@
     <div class="card post">
         <div class="card-top d-flex align-items-center p-1 my-1">
             <img src="{{$image->user->getFirstMediaUrl() != '' ? $image->user->getFirstMediaUrl() : 'https://placehold.co/50x50'}}"
-                 class="profile rounded-circle" style="width: 50px; height: 50px" loading="lazy">
+                 class="profile rounded-circle best-image" style="width: 50px; height: 50px" loading="lazy"
+                 onclick="document.getElementById('show-event-modal').src = this.src;">
             <div>
                 <strong class="m-2">{{$image->user->name}}</strong>
             </div>
         </div>
 
-        <img src="{{$image->getFirstMediaUrl()}}" alt="" class="post-img rounded" style="height: 400px;
-    object-fit: cover;">
+        <img src="{{$image->getFirstMediaUrl()}}" alt="" class="post-img rounded best-image" style="height: 400px;
+    object-fit: cover;"
+             onclick="document.getElementById('show-event-modal').src = this.src;">
         <div class="actions p-2">
             <ul class="d-flex">
                 <li class="p-1 m-1"><a href="{{route('best-images.toggleLike', ['image' => $image])}}">

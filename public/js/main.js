@@ -84,6 +84,9 @@ $('.get-started').on('click', function () {
     $('.conty').toggleClass('form')
 })
 
+$('.best-image').on('click', function () {
+    $('.custom-modal.view-event').fadeIn()
+})
 
 // Bottom bar active icons
 
