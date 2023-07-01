@@ -17,7 +17,7 @@ use App\Http\Controllers\StepsController;
 */
 
 
-Route::middleware(['is_website_open'])->group(function() {
+Route::middleware(['is_website_open', 'inform_voters'])->group(function() {
     Auth::routes();
 
     Route::middleware(['auth'])->group(function() {
@@ -32,7 +32,7 @@ Route::middleware(['is_website_open'])->group(function() {
 
 Route::get('/not-yet', function() {
     if(config('app.is_website_open'))
-        return redirect()->route('home');
+        return redirect()->route('register');
 
     return view('website-closed');
 })->name('website-closed');

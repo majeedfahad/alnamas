@@ -65,5 +65,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'is_website_open' => \App\Http\Middleware\IsWebsiteOpen::class,
+        'inform_voters' => \App\Http\Middleware\InformVoters::class,
     ];
 }

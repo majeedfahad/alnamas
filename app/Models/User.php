@@ -39,8 +39,8 @@ class User extends Authenticatable implements HasMedia
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
         'password' => 'hashed',
+        'informed_as_voter' => 'boolean',
     ];
 
     public function steps(): HasMany
@@ -77,7 +77,7 @@ class User extends Authenticatable implements HasMedia
 
     public function makeAsVoter(): self
     {
-        $this->update(['role' => 'voter',]);
+        $this->update(['role' => 'voter', 'informed_as_voter' => false,]);
 
         return $this;
     }
@@ -87,5 +87,22 @@ class User extends Authenticatable implements HasMedia
         $this->update(['role' => 'user',]);
 
         return $this;
+    }
+
+    public function shouldInformedAsVoter(): bool
+    {
+        return $this->informed_as_voter === false;
+    }
+
+    public function informedAsVoter(): self
+    {
+        $this->update(['informed_as_voter' => true,]);
+
+        return $this;
+    }
+
+    public function hasBeenVoter(): bool
+    {
+        return $this->informed_as_voter === true;
     }
 }
