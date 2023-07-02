@@ -37,7 +37,7 @@
                                  class="profile rounded-circle best-image" style="width: 50px; height: 50px" loading="lazy"
                                  onclick="imageLoader(this)">
                             <div>
-                                <strong class="m-2">{{$image->user->name ?? 'شد حيلك عشان نحط اسمك يا' . auth()->user()->name}}</strong>
+                                <strong class="m-2">{{$image->user->name ?? 'شد حيلك عشان نحط اسمك يا' . explode(" ", auth()->user()->name)[0]}}</strong>
                             </div>
                         </div>
 
