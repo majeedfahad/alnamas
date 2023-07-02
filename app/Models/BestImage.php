@@ -95,6 +95,10 @@ class BestImage extends Model implements HasMedia
             return;
         }
 
+        if ($this->user_id === $user->id) {
+            throw new BusinessException('ماتقيم نفسك ياحلو');
+        }
+
         $this->votes()->create([
             'interacted_by' => $user->id,
             'type' => 'vote',
