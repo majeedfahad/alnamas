@@ -34,7 +34,6 @@
 
 <script>
     function imageLoader(elm, isModal = true) {
-        console.log(elm)
         if (isModal) {
             var myImage = document.querySelector("#show-event-modal");
             var loader = document.querySelector("#loader");

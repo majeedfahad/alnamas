@@ -99,6 +99,6 @@ $('.bottom-bar ul li a').each(function() {
         $(this).parent().addClass('active');
         $(this).find('i').addClass('active-icon');
     }
-    console.log(currentPage)
+    // console.log(currentPage)
 });
 
