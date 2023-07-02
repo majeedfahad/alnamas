@@ -35,7 +35,28 @@
                 <li class="p-1 m-1"><a href="{{route('best-images.unvote', ['image' => $image])}}" class="btn btn-outline-danger">إلغاء التقييم</a>
                 </li>
                 @endcan
+                @can('delete', $image)
+                    <form action="{{route('best-images.destroy', ['best_image' => $image])}}"
+                          method="POST" id="image-delete-form"
+                            onsubmit="showConfirm(event)">
+                        @csrf
+                        @method('DELETE')
+                        <li class="p-1 m-1 show_confirm"><button type="submit" class="btn btn-outline-danger" data-toggle="tooltip">حذف</button></li>
+                    </form>
+                @endcan
             </ul>
         </div>
     </div>
 </div>
+
+<script>
+    function showConfirm(event) {
+        event.preventDefault();
+
+        let confirmation = confirm('أكيد بتحذفها؟ ترا مافيه تراجع');
+
+        if (confirmation) {
+            event.target.submit();
+        }
+    }
+</script>

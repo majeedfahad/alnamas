@@ -38,6 +38,15 @@ class BestImageController extends Controller
         return redirect()->route('best-images.index');
     }
 
+    public function destroy(BestImage $best_image)
+    {
+        $this->authorize('delete', $best_image);
+
+        $best_image->delete();
+
+        return back();
+    }
+
     public function toggleLike(BestImage $image)
     {
         $image->like(auth()->user());

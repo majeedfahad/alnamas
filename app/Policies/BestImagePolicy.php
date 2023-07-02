@@ -27,4 +27,9 @@ class BestImagePolicy
         return $user->isVoter() &&
             $image->isVotedBy($user);
     }
+
+    public function delete(User $user, BestImage $image)
+    {
+        return $image->user_id === $user->id;
+    }
 }
