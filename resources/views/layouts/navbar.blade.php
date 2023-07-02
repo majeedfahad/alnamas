@@ -12,7 +12,7 @@
                                 src="{{Auth::user()->getFirstMediaUrl() != '' ? Auth::user()->getFirstMediaUrl() : 'https://placehold.co/50x50'}}"
                             class="rounded-circle ml-1" style="width: 50px; height: 50px">
                             <span class="pro-user-name " id="username">
-                                <span class="text-capitalize m-2">
+                                <span class="text-capitalize m-2" id="user-name">
                                     {{ Auth::user()->name }}
                                 </span>
                             </span>
@@ -24,3 +24,8 @@
         </div>
     </div>
 </nav>
+
+<script>
+    let name = document.getElementById('user-name');
+    name.innerHTML = name.innerHTML.trim().split(' ')[0]
+</script>
