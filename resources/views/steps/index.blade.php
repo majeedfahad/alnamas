@@ -105,8 +105,6 @@
                     <p class="steps-count m-0 p-0">{{$step->count}}</p>
                 </div>
             </li>
-
-
         @endforeach
     </ul>
 

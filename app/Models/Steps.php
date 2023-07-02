@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -33,6 +34,12 @@ class Steps extends Model implements HasMedia
     {
         return static::query()
             ->whereDate('created_at', today());
+    }
+
+    public function scopeYesterday()
+    {
+        return static::query()
+            ->whereDate('created_at', Carbon::yesterday());
     }
 
     public function scopeApproved(Builder $query)

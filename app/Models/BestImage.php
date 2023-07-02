@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Exceptions\BusinessException;
 use App\Models\BestImage\Interaction;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -110,9 +111,9 @@ class BestImage extends Model implements HasMedia
         return $this->votes()->where('interacted_by', $user->id)->exists();
     }
 
-    public static function isBestImageChosedToday(): bool
+    public function isBestImageChosedToday(): bool
     {
-        return static::query()->today()->where('is_best_today', true)->exists();
+        return self::query()->whereDate('created_at', $this->created_at)->where('is_best_today', true)->exists();
     }
 
     public function makeAsBest(): void
@@ -134,5 +135,10 @@ class BestImage extends Model implements HasMedia
     public function getTotalRating()
     {
         return ($this->votes()->count() * 3) + $this->likes()->count();
+    }
+
+    public static function bestOfYesterday()
+    {
+        return self::query()->whereDate('created_at', Carbon::yesterday())->where('is_best_today', true)->first();
     }
 }

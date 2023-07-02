@@ -61,7 +61,7 @@ class BestImageResource extends Resource
                     ->action(fn($record) => $record->makeAsBest())
                     ->requiresConfirmation()
                     ->color('success')
-                    ->visible(fn($record) => $record->isUploadedToday() && !BestImage::isBestImageChosedToday()),
+                    ->visible(fn($record) => !$record->isBestImageChosedToday()),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

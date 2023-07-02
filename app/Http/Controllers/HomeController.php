@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\BestImage;
 use App\Models\Event;
+use App\Models\Steps;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -16,6 +18,10 @@ class HomeController extends Controller
     {
         $events = Event::all();
 
-        return view('home', compact('events'));
+        $image = BestImage::bestOfYesterday();
+
+        $steps = Steps::query()->yesterday()->approved()->get()->sortByDesc('count')->values();
+
+        return view('home', compact('events', 'image', 'steps'));
     }
 }

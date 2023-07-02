@@ -11,7 +11,8 @@
 
         <img src="{{$image->getFirstMediaUrl()}}" alt="" class="post-img rounded best-image" style="height: 400px;
     object-fit: cover;"
-             onclick="document.getElementById('show-event-modal').src = this.src;">
+             onclick="document.getElementById('show-event-modal').src = this.src;"
+             loading="lazy">
         <div class="actions p-2">
             <ul class="d-flex">
                 <li class="p-1 m-1"><a href="{{route('best-images.toggleLike', ['image' => $image])}}">
