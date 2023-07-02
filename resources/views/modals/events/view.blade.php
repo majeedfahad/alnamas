@@ -32,3 +32,19 @@
     </div>
 </div>
 
+<script>
+    function imageLoader(elm) {
+        var myImage = document.getElementById("show-event-modal");
+        var loader = document.getElementById("loader");
+
+        myImage.style.display = "none";
+        loader.style.display = "block";
+
+        myImage.src = elm.src;
+
+        myImage.onload = function () {
+            loader.style.display = "none";
+            myImage.style.display = "block";
+        }
+    }
+</script>

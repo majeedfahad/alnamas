@@ -53,7 +53,7 @@
 <script src="https://kit.fontawesome.com/94124166ee.js" crossorigin="anonymous"></script>
 <script src="{{asset('/js/jquery.js')}}"></script>
 <script src="{{asset('/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('/js/main.js?v=1.1')}}"></script>
+<script src="{{asset('/js/main.js?v=1.0')}}"></script>
 {{-- custom script --}}
 @yield('custom_script')
 </body>
