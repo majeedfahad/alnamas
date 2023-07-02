@@ -9,9 +9,11 @@
             </div>
         </div>
 
-        <img src="{{$image->getFirstMediaUrl()}}" alt="" class="post-img rounded best-image" style="height: 400px;
+        <img src="{{asset('img/logo.png')}}" alt="loading" class="loader" id="loader">
+        <img src="{{$image->getFirstMediaUrl()}}" alt="" class="post-img rounded best-image" id="post-img" style="height: 400px;
     object-fit: cover;"
              onclick="imageLoader(this)"
+             onload="imageLoader(this, false)"
              loading="lazy">
         <div class="actions p-2">
             <ul class="d-flex">
