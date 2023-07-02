@@ -4,7 +4,7 @@
             <img
                 src="{{$image->user->getFirstMediaUrl() != '' ? $image->user->getFirstMediaUrl() : 'https://placehold.co/50x50'}}"
                 class="profile rounded-circle best-image" style="width: 50px; height: 50px" loading="lazy"
-                onload="imageLoaded(this)"
+                onload="imageLoader(this)"
                 onclick="imageLoader(this)">
             <div>
                 <strong class="m-2">{{$image->user->name}}</strong>
@@ -17,7 +17,7 @@
             <img src="{{$image->getFirstMediaUrl()}}" alt="" class="post-img rounded best-image" style="height: 400px;
     object-fit: cover;"
                  onclick="imageLoader(this)"
-                 onload="imageLoaded(this)"
+                 onload="imageLoader(this)"
                  loading="lazy">
         </div>
         <div class="actions p-2">
