@@ -36,6 +36,7 @@
                     <div class="content">
                         <!-- Start Content-->
                         <div class="container-fluid">
+                            @include('includes.events', ['events' => \App\Models\Event::all()])
                             @yield('content')
                         </div>
                     </div>
@@ -46,6 +47,7 @@
     </div>
 </div>
 @yield('modals')
+@include('modals.events.view')
 @include('modals.best-images.add-image')
 <!-- App js -->
 <script src="https://kit.fontawesome.com/94124166ee.js" crossorigin="anonymous"></script>

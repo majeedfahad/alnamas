@@ -31,4 +31,3 @@
         </div>
 
 @endsection
-@include('modals.events.view')

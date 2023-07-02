@@ -16,12 +16,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
-
         $image = BestImage::bestOfYesterday();
 
         $steps = Steps::query()->yesterday()->approved()->get()->sortByDesc('count')->values();
 
-        return view('home', compact('events', 'image', 'steps'));
+        return view('home', compact('image', 'steps'));
     }
 }
