@@ -6,7 +6,8 @@
             @csrf
 
             <label for="fileInput" class="file-input-label text-white btn btn-dark mx-1 text-white mt-2 mb-1 fs-6" style="width: 100%">
-                اختار احلى صورة لليوم
+                شاركنا احترافك لليوم 📸
+
             </label>
             <input type="file" id="fileInput" name="image" style="display: none;" accept="image/*" onchange="readURL(this);" required>
             <button type="submit" class="text-white btn btn-dark mx-1 text-white mt-2 mb-1 fs-6"><i class="fa-solid fa-paper-plane"></i></button>
