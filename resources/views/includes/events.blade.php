@@ -3,7 +3,8 @@
         <div class="account-pics event m-2">
             <div class="account-pics m-2 ">
                 <img src="{{$event->getFirstMediaUrl() != '' ? $event->getFirstMediaUrl() : "https://placehold.co/60x60"}}"
-                     alt="" style="height: 60px; width: 60px" class="rounded-circle" onclick="imageLoader(this)">
+                     alt="" style="height: 60px; width: 60px" class="rounded-circle" onclick="imageLoader(this)"              onload="imageLoader(this, false)"
+                >
                 <p>{{$event->name}}</p>
             </div>
         </div>

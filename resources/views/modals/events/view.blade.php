@@ -33,9 +33,15 @@
 </div>
 
 <script>
-    function imageLoader(elm) {
-        var myImage = document.getElementById("show-event-modal");
-        var loader = document.getElementById("loader");
+    function imageLoader(elm, isModal = true) {
+        console.log(elm)
+        if (isModal) {
+            var myImage = document.querySelector("#show-event-modal");
+            var loader = document.querySelector("#loader");
+        } else {
+            var myImage = elm.parentNode.querySelector("#post-img");
+            var loader = elm.parentNode.querySelector("#loader");
+        }
 
         myImage.style.display = "none";
         loader.style.display = "block";
