@@ -35,6 +35,7 @@
                         <div class="card-top d-flex align-items-center p-1 my-1">
                             <img src="{{$image ? $image->user->getFirstMediaUrl() : 'https://placehold.co/50x50'}}"
                                  class="profile rounded-circle best-image" style="width: 50px; height: 50px" loading="lazy"
+                                 onload="imageLoaded(this)"
                                  onclick="imageLoader(this)">
                             <div>
                                 <strong class="m-2">{{$image->user->name ?? 'شد حيلك عشان نحط اسمك يا' . auth()->user()->name}}</strong>
@@ -43,6 +44,7 @@
 
                         <img src="{{$image ? $image->getFirstMediaUrl() : asset('/img/best-image-winner.jpg')}}" alt="" class="post-img rounded best-image" style="height: 400px;
     object-fit: cover;"
+                             onload="imageLoaded(this)"
                              onclick="imageLoader(this)"
                              loading="lazy">
                         @if($image)
@@ -81,6 +83,7 @@
 
                                 <img src="{{$image ? $image->getFirstMediaUrl() : asset('/img/walking-winner.jpg')}}" alt="" class="post-img rounded best-image" style="height: 350px;
     object-fit: cover;"
+                                     onload="imageLoaded(this)"
                                      onclick="imageLoader(this)"
                                      loading="lazy">
                             </div>
