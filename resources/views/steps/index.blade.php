@@ -68,10 +68,10 @@
         </a>
     </div>
     <div class="d-flex justify-content-between bg-light py-3 px-2 rounded-3 align-items-center shadow-sm">
-    <p class="m-0 p-0"> <span class="dot1"></span> قيد المعالجة </p>
-    <p class="m-0 p-0"> <span class="dot"></span> مقبول </p>
+    <p class="m-0 p-0"> <span class="dot1"></span> ندقق وراك </p>
+    <p class="m-0 p-0"> <span class="dot"></span> صدوق </p>
         <p class="m-0 p-0"> <span class="dot2"></span> مرفوض يالتسذوب! </p>
-       
+
 </div>
     <p></p>
     <div class="d-flex justify-content-between bg-light py-3 px-2 rounded-3 align-items-center shadow-sm">
@@ -83,20 +83,20 @@
     </div>
 
     <ul class="step-places">
-        @foreach($steps as $step)
+        @foreach($steps as $key => $step)
             <li class="d-flex bg-light py-3 px-2 my-2 rounded-3 shadow-sm">
             @if($step->isApproved())
                 <div class="place">
-                    {{$step->id}}
+                    {{$key+1}}
                 </div>
             @else
              @if($step->isRejected())
             <div class="place2">
-                    {{$step->id}}
+                    {{$key+1}}
                 </div>
              @else
               <div class="place1">
-                    {{$step->id}}
+                    {{$key+1}}
                 </div>
                 @endif
                 @endif
@@ -105,8 +105,8 @@
                     <p class="steps-count m-0 p-0">{{$step->count}}</p>
                 </div>
             </li>
-          
-      
+
+
         @endforeach
     </ul>
 

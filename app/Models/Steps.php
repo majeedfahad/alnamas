@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -32,6 +33,21 @@ class Steps extends Model implements HasMedia
     {
         return static::query()
             ->whereDate('created_at', today());
+    }
+
+    public function scopeApproved(Builder $query)
+    {
+        return $query->where('approved', true);
+    }
+
+    public function scopePending(Builder $query)
+    {
+        return $query->where('approved', null);
+    }
+
+    public function scopeRejected(Builder $query)
+    {
+        return $query->where('approved', false);
     }
 
     public static function create(array $data): self
