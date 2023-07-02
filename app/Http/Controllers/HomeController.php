@@ -18,7 +18,7 @@ class HomeController extends Controller
     {
         $image = BestImage::bestOfYesterday();
 
-        $steps = Steps::query()->yesterday()->approved()->get()->sortByDesc('count')->values();
+        $steps = Steps::query()->yesterday()->approved()->get()->sortByDesc('count')->take(3)->values();
 
         return view('home', compact('image', 'steps'));
     }
