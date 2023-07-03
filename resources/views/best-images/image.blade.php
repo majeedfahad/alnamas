@@ -41,7 +41,8 @@
                             onsubmit="showConfirm(event)">
                         @csrf
                         @method('DELETE')
-                        <li class="p-1 m-1 show_confirm"><button type="submit" class="btn btn-outline-danger" data-toggle="tooltip">حذف</button></li>
+                        <li class="p-1 m-1 show_confirm"><button type="submit" class="fa fa-trash" data-toggle="tooltip" style="font-size:15px;color:red; border: none;
+    background: none;"></button></li>
                     </form>
                 @endcan
             </ul>
