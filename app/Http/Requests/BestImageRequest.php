@@ -20,7 +20,7 @@ class BestImageRequest extends FormRequest
             'image' => [
                 'required',
                 'image',
-                'max:2048',
+                'max:5120',
                 new OnceADay(BestImage::class),
             ],
         ];
@@ -31,7 +31,7 @@ class BestImageRequest extends FormRequest
         return [
             'image.required' => 'نسيتا الصورة',
             'image.image' => 'صورة الله يخليك ارفع صورة',
-            'image.max' => 'معليش السيرفر زحمة لازم صورة اقل من 2MB',
+            'image.max' => 'معليش السيرفر زحمة لازم صورة اقل من 5MB',
         ];
     }
 

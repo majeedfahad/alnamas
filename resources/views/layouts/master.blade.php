@@ -36,7 +36,7 @@
                     <div class="content">
                         <!-- Start Content-->
                         <div class="container-fluid">
-                            @include('includes.events', ['events' => \App\Models\Event::all()])
+                            @include('includes.events', ['events' => \App\Models\Event::all()->sortByDesc('id')])
                             @yield('content')
                         </div>
                     </div>
