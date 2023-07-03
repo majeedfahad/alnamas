@@ -82,7 +82,7 @@
                         <div class="col-md-4 mb-2">
                             <div class="card post">
 
-                                <img src="{{$image ? $image->getFirstMediaUrl() : asset('/img/walking-winner.jpg')}}" alt="" class="post-img rounded best-image" style="height: 350px;
+                                <img src="{{asset('/img/walking-winner.jpg')}}" alt="" class="post-img rounded best-image" style="height: 350px;
     object-fit: cover;"
                                      onclick="imageLoader(this)"
                                      onload="imageLoader(this, false)"
