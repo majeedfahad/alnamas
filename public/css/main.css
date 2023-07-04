@@ -90,7 +90,7 @@ ul {
 /**/
 .account-pics img {
     padding: 5px;
-    outline: 2px dashed var(--main-color);
+    border: 2px dashed var(--main-color);
     margin-bottom: 6px;
     cursor: pointer;
 }

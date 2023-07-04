@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic&display=swap" rel="stylesheet">
     <!-- App css -->
     <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css"/>
-    <link href="{{asset('/css/main.css?v=1.1')}}" rel="stylesheet" type="text/css"/>
+    <link href="{{asset('/css/main.css?v=1.2')}}" rel="stylesheet" type="text/css"/>
     @yield('custom_style')
 </head>
 <body>
@@ -53,7 +53,7 @@
 <script src="https://kit.fontawesome.com/94124166ee.js" crossorigin="anonymous"></script>
 <script src="{{asset('/js/jquery.js')}}"></script>
 <script src="{{asset('/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{asset('/js/main.js?v=1.1')}}"></script>
+<script src="{{asset('/js/main.js?v=1.2')}}"></script>
 {{-- custom script --}}
 @yield('custom_script')
 </body>
