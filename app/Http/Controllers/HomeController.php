@@ -25,7 +25,10 @@ class HomeController extends Controller
 
     public function tripEnd()
     {
+        $image = BestImage\Interaction::mostLovedImage();
 
-        return view('trip-ends');
+        $steps = Steps::highestSteps(5);
+
+        return view('trip-ends', compact('image', 'steps'));
     }
 }

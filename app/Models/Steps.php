@@ -99,4 +99,15 @@ class Steps extends Model implements HasMedia
 
         return $this;
     }
+
+    public static function highestSteps($count = 3)
+    {
+        return static::query()
+            ->with('user:id,name')
+            ->selectRaw('sum(count) as total, user_id')
+            ->groupBy('user_id')
+            ->orderByDesc('total')
+            ->limit($count)
+            ->get();
+    }
 }

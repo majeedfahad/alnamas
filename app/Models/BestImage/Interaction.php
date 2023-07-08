@@ -44,4 +44,15 @@ class Interaction extends Model
     {
         return !static::userVotedToday($user);
     }
+
+    public static function mostLovedImage(): BestImage
+    {
+        return static::query()
+            ->selectRaw('best_image_id, count(*) as total')
+            ->where('type', 'like')
+            ->groupBy('best_image_id')
+            ->orderByDesc('total')
+            ->firstOrFail()
+            ->image;
+    }
 }

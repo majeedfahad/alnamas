@@ -66,7 +66,7 @@
             <div class="card post">
                 <div class="card-top d-flex align-items-center p-1 my-1">
                     <div>
-                        <h2 class="m-2">أقوى رياضيين أمس</h2>
+                        <h2 class="m-2">أقوى الرياضيين خلال السفرة</h2>
                     </div>
                 </div>
                 <ul class="step-places">
@@ -75,7 +75,7 @@
                             <div class="place">{{$key+1}}</div>
                             <div class="d-flex justify-content-between mx-2 align-items-center" style="width: 100%">
                                 <p class="name  m-0 p-0">{{$step->user->name}} </p>
-                                <p class="steps-count m-0 p-0">{{$step->count}}</p>
+                                <p class="steps-count m-0 p-0">{{$step->total}}</p>
                             </div>
                         </li>
                     @empty
