@@ -25,6 +25,10 @@ class HomeController extends Controller
 
     public function tripEnd()
     {
+        if(! config('app.is_trip_ends')) {
+            return redirect()->route('home');
+        }
+
         $image = BestImage\Interaction::mostLovedImage();
 
         $steps = Steps::highestSteps(5);
