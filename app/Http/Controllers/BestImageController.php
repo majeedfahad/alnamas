@@ -13,6 +13,9 @@ class BestImageController extends Controller
      */
     public function index()
     {
+        if (config('app.is_trip_ends')) {
+            return redirect()->route('gallery');
+        }
         $images = BestImage::query()->today()->get();
 
         return view('best-images.index', compact('images'));
