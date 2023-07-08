@@ -66,5 +66,6 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'is_website_open' => \App\Http\Middleware\IsWebsiteOpen::class,
         'inform_voters' => \App\Http\Middleware\InformVoters::class,
+        'is_trip_ends' => \App\Http\Middleware\IsTripEnds::class,
     ];
 }

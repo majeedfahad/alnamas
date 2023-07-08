@@ -188,4 +188,6 @@ return [
 
     'is_website_open' => env('IS_WEBSITE_OPEN', true),
 
+    'is_trip_ends' => env('IS_TRIP_ENDS', false)
+
 ];

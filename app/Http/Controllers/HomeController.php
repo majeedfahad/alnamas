@@ -22,4 +22,10 @@ class HomeController extends Controller
 
         return view('home', compact('image', 'steps'));
     }
+
+    public function tripEnd()
+    {
+
+        return view('trip-ends');
+    }
 }
