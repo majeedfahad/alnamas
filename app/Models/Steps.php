@@ -110,4 +110,24 @@ class Steps extends Model implements HasMedia
             ->limit($count)
             ->get();
     }
+
+    public static function allStepsOrdered()
+    {
+        return static::query()
+            ->with('user:id,name')
+            ->selectRaw('sum(count) as count, user_id')
+            ->groupBy('user_id')
+            ->orderByDesc('count')
+            ->get();
+    }
+
+    public static function todaysSteps()
+    {
+        $approvedSteps = Steps::query()->today()->approved()->get()->sortByDesc('count');
+        $pendingSteps = Steps::query()->today()->pending()->get()->sortByDesc('count');
+        $rejectedSteps = Steps::query()->today()->rejected()->get()->sortByDesc('count');
+
+        return $approvedSteps->merge($pendingSteps)->merge($rejectedSteps)
+            ->values(); // reset keys
+    }
 }

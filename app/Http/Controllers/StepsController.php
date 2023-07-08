@@ -10,12 +10,7 @@ class StepsController extends Controller
 {
     public function index(Request $request)
     {
-        $approvedSteps = Steps::query()->today()->approved()->get()->sortByDesc('count');
-        $pendingSteps = Steps::query()->today()->pending()->get()->sortByDesc('count');
-        $rejectedSteps = Steps::query()->today()->rejected()->get()->sortByDesc('count');
-
-        $steps = $approvedSteps->merge($pendingSteps)->merge($rejectedSteps)
-            ->values(); // reset keys
+        $steps = Steps::todaysSteps();
 
         return view('steps.index', compact('steps'));
     }

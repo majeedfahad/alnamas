@@ -20,7 +20,7 @@ use App\Http\Controllers\StepsController;
 Route::middleware(['is_website_open', 'inform_voters'])->group(function() {
     Auth::routes();
 
-    Route::middleware(['auth', 'is_trip_ends'])->group(function() {
+    Route::middleware(['auth'])->group(function() {
         Route::get('/', [HomeController::class, 'index'])->name('home');
         Route::resource('steps', StepsController::class)->only(['index', 'create', 'store']);
         Route::get('best-images/{image}/toggleLike', [BestImageController::class, 'toggleLike'])->name('best-images.toggleLike');
@@ -28,9 +28,10 @@ Route::middleware(['is_website_open', 'inform_voters'])->group(function() {
         Route::get('best-images/{image}/unvote', [BestImageController::class, 'unvote'])->name('best-images.unvote');
         Route::resource('best-images', BestImageController::class)->only(['index', 'create', 'store', 'destroy']);
 
-    });
+        Route::get('end', [HomeController::class, 'tripEnd'])->name('end');
+        Route::get('gallery', [HomeController::class, 'gallery'])->name('gallery');
 
-    Route::get('end', [HomeController::class, 'tripEnd'])->name('end');
+    });
 });
 
 Route::get('/not-yet', function() {

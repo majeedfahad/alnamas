@@ -75,7 +75,7 @@
                             <div class="place">{{$key+1}}</div>
                             <div class="d-flex justify-content-between mx-2 align-items-center" style="width: 100%">
                                 <p class="name  m-0 p-0">{{$step->user->name}} </p>
-                                <p class="steps-count m-0 p-0">{{$step->total}}</p>
+                                <p class="steps-count m-0 p-0">{{$step->count}}</p>
                             </div>
                         </li>
                     @empty

@@ -16,6 +16,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if(config('app.is_trip_ends')) {
+            return redirect()->route('end');
+        }
+
         $image = BestImage::bestOfYesterday();
 
         $steps = Steps::query()->yesterday()->approved()->get()->sortByDesc('count')->take(3)->values();
@@ -31,8 +35,15 @@ class HomeController extends Controller
 
         $image = BestImage\Interaction::mostLovedImage();
 
-        $steps = Steps::highestSteps(5);
+        $steps = Steps::allStepsOrdered();
 
         return view('trip-ends', compact('image', 'steps'));
+    }
+
+    public function gallery()
+    {
+        $images = BestImage::query()->paginate(15);
+
+        return view('gallery.index', compact('images'));
     }
 }

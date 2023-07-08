@@ -8,17 +8,22 @@
             </a>
         </li>
         <li>
-            <a href="{{route('best-images.index')}}" >
-                <i class="fa-solid fa-image"></i>
-
-                صورة اليوم
-            </a>
+            @if(! config('app.is_trip_ends'))
+                <a href="{{route('best-images.index')}}" >
+                    <i class="fa-solid fa-image"></i>
+                    صورة اليوم
+                </a>
+            @else
+                <a href="{{route('gallery')}}" >
+                    <i class="fa-solid fa-image"></i>
+                    معرض الصور
+                </a>
+            @endif
         </li>
 
         <li>
             <a href="{{route('steps.index')}}">
                 <i class="fa-solid fa-person-walking"></i>
-
                 تحدي المشي
             </a>
         </li>
